@@ -10,4 +10,6 @@ void Task::printMessage(QString str)
 {
     qDebug()<<"You send str: "<<str;
     qDebug()<<"Thread address: "<<QThread::currentThreadId();
+
+    QThread::currentThread()->quit();
 }
