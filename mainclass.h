@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QThread>
+#include <QCoreApplication>
 #include <QDebug>
 
 #include "task.h"
