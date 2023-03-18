@@ -6,8 +6,9 @@ Task::Task(QObject *parent)
 
 }
 
-void Task::printMessage(QString str)
+void Task::printMessage()
 {
-    qDebug()<<"You send str: "<<str;
+    qDebug()<<"You send str: empty";
     qDebug()<<"Thread address: "<<QThread::currentThreadId();
+    emit stop();
 }

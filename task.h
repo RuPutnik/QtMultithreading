@@ -10,9 +10,11 @@ class Task : public QObject
     Q_OBJECT
 public:
     explicit Task(QObject *parent = nullptr);
-
+signals:
+    void stop();
 public slots:
-    void printMessage(QString);
+    void printMessage();
+
 };
 
 #endif // TASK_H
