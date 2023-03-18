@@ -1,9 +1,15 @@
 #include "task.h"
 
 Task::Task(QObject *parent)
-    : QObject{parent}
 {
 
+}
+
+void Task::run()
+{
+    qDebug()<<"Start thread..";
+    printMessage("Message from RUN");
+    //quit();
 }
 
 void Task::printMessage(QString str)

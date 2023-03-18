@@ -4,14 +4,14 @@
 MainClass::MainClass(QObject *parent)
     : QObject{parent}
 {
-    taskThread=new QThread();
-    tsk=new Task();
 
-    tsk->moveToThread(taskThread);
+    tsk=new Task();
 }
 
 void MainClass::runTest()
 {
     qDebug()<<"Main thread id: "<<QThread::currentThreadId();
-
+    tsk->start();
+    tsk->wait();
+    exit(0);
 }

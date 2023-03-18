@@ -14,7 +14,7 @@ class MainClass : public QObject
     Q_OBJECT
 public:
     explicit MainClass(QObject *parent = nullptr);
-    QThread* taskThread;
+    //QThread* taskThread;
     Task* tsk;
 
     void runTest();
