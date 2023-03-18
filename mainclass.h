@@ -16,6 +16,8 @@ public:
     explicit MainClass(QObject *parent = nullptr);
     QThread* taskThread;
     Task* tsk;
+
+    void runTest();
 signals:
 
 };

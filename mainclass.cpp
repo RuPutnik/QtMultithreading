@@ -7,4 +7,10 @@ MainClass::MainClass(QObject *parent)
     taskThread=new QThread;
     tsk=new Task;
 
+    tsk->moveToThread(taskThread);
+}
+
+void MainClass::runTest()
+{
+
 }
