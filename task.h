@@ -13,6 +13,8 @@ public:
 
 public slots:
     void printMessage(QString);
+    void printSingleMessage(QString);
+    void exitThread();
 };
 
 #endif // TASK_H

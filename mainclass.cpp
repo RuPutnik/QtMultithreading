@@ -8,7 +8,11 @@ MainClass::MainClass(QObject *parent)
     tsk=new Task();
 
     tsk->moveToThread(taskThread);
-    connect(this, &MainClass::sendMessage,tsk,&Task::printMessage);//connect default
+
+    connect(this,       &MainClass::sendMessage,       tsk,  &Task::printMessage); //connect default
+    connect(this,       &MainClass::sendSingleMessage, tsk,  &Task::printSingleMessage, (Qt::ConnectionType)(Qt::QueuedConnection|Qt::SingleShotConnection));
+    connect(this,       &MainClass::closeThread,       tsk,  &Task::exitThread,         Qt::QueuedConnection);
+    connect(taskThread, &QThread::finished,            this, QCoreApplication::quit);
 }
 
 void MainClass::runTest()
@@ -16,7 +20,13 @@ void MainClass::runTest()
     taskThread->start();
     qDebug()<<"Main thread id: "<<QThread::currentThreadId();
     emit sendMessage("I'm a message");
-    taskThread->wait();
+    emit sendMessage("I'm a message 1");
+    emit sendMessage("I'm a message 2");
 
-    exit(0);
+    emit sendSingleMessage("AAA");
+    emit sendSingleMessage("BBB");
+    emit sendSingleMessage("CCC");
+
+    QThread::currentThread()->sleep(1);
+    emit closeThread();
 }

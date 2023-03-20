@@ -21,6 +21,8 @@ public:
     void runTest();
 signals:
     void sendMessage(QString);
+    void sendSingleMessage(QString);
+    void closeThread();
 };
 
 #endif // MAINCLASS_H
