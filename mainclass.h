@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QtConcurrent/QtConcurrent>
 #include <QDebug>
+#include <QVector>
 
 #include "task.h"
 
