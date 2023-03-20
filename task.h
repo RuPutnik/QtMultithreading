@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QDebug>
 #include <QThread>
+#include <QRunnable>
 
 class Task : public QObject
 {

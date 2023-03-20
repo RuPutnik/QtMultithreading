@@ -2,9 +2,7 @@
 
 Task::Task(QObject *parent)
     : QObject{parent}
-{
-
-}
+{}
 
 void Task::printMessage(QString str)
 {
