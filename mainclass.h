@@ -5,6 +5,7 @@
 #include <QtConcurrent/QtConcurrent>
 #include <QDebug>
 #include <QVector>
+#include <QPromise>
 
 #include "task.h"
 

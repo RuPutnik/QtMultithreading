@@ -40,14 +40,14 @@ void MainClass::runTest()
         qDebug()<<"len: "<<lenStr;
     }
 
-    QFuture futFilter=QtConcurrent::filtered(v,[](QString str){
+    QFuture futFilter=QtConcurrent::filter(v,[](const QString& str){
         qDebug()<<QThread::currentThreadId();
         QThread::sleep(1);
         return str.length()>2;
     });
     //filtered делает то же самое, но формирует новую последовательность из прошедших фильтрацию элементов, вместо изменения исходной
 
-    fut.waitForFinished();
+    futFilter.waitForFinished();
 
     for(auto elem:v){
         qDebug()<<"elem: "<<elem;
