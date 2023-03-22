@@ -12,6 +12,8 @@ void MainClass::runTest()
     QFuture<void> fv=QtConcurrent::run(&Task::printMessage,tsk,"hello");
     QFuture<int> fv1=QtConcurrent::run(&Task::getSumm,tsk,QVector<int>{1,5,8,34});
     QFuture fv2=QtConcurrent::task(&Task::getMultiples<int>).withArguments(tsk,QVector<int>{1,2,3,4}).spawn();
+    QList v{"ps","top","df","ipconfig"};
+
 
     qDebug()<<"Parallel";
 
@@ -24,6 +26,18 @@ void MainClass::runTest()
 
     for(auto v:fv1){
         qDebug()<<"V: "<<v;
+    }
+
+    QFuture fut=QtConcurrent::mapped(v,[](QString str){
+        qDebug()<<QThread::currentThreadId();
+        QThread::sleep(1);
+        return str.length();
+    });
+
+    fut.waitForFinished();
+
+    for(auto lenStr:fut){
+        qDebug()<<"len: "<<lenStr;
     }
 
     exit(0);
