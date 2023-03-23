@@ -5,7 +5,7 @@ Task::Task(QObject *parent)
 {
 
 }
-//ЗАПУСКА QEVENTLOOP НЕ БУДЕТ
+//ЗАПУСКА QEVENTLOOP НЕ БУДЕТ, но для отправки сигналов он и не нужен
 void Task::run()
 {
     printMessage("blablabla");
