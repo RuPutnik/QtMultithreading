@@ -4,19 +4,19 @@
 #include <QObject>
 #include <QThread>
 #include <QDebug>
+#include <QThreadPool>
+#include <QCoreApplication>
 
 #include "task.h"
-
-class QThread;
 
 class MainClass : public QObject
 {
     Q_OBJECT
 public:
     explicit MainClass(QObject *parent = nullptr);
-    QThread* taskThread;
     Task* tsk;
-
+    QThreadPool* pool;
+    int countSync=0;
     void runTest();
 signals:
 
