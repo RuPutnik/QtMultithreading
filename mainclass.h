@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QThread>
 #include <QDebug>
+#include <QCoreApplication>
 
 #include "task.h"
 
@@ -19,7 +20,7 @@ public:
 
     void runTest();
 signals:
-
+    void sendMess(QString msg);
 };
 
 #endif // MAINCLASS_H
