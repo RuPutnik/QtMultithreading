@@ -14,6 +14,7 @@ signals:
     void stop();
 public slots:
     void printMessage();
+    void drawRectangle(int w, int h);
 
 };
 

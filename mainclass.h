@@ -20,7 +20,7 @@ public:
 
     void runTest();
 signals:
-
+    void sendPrintRectangle(int w, int h);
 };
 
 #endif // MAINCLASS_H
